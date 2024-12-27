@@ -14,7 +14,7 @@ function get_bytes()
 {
 	var inTxt = document.getElementById("myinput").value;
 	inTxt = inTxt.replace(/^radix:(.*)$/gmi, "");
-	inTxt = inTxt.replace(/(\/\*(.*?)\*\/)|(\/\/(.*?)$)|[g-w]|[yz]/gmi, ""); // strip C/C++ comments, non-hex chars
+	inTxt = inTxt.replace(/(\/\*(.*?)\*\/)|(\/\/(.*?)$)|(#(.*?)$)|[g-w]|[yz]/gmi, ""); // strip C/C++/Python comments, non-hex chars
 	document.getElementById("myinput").value = inTxt;
 	var inSplit = inTxt.split(/(?![+-])\W/); // split by all non-alphanumeric characters
 	if(inSplit.length === 1 && inSplit[0].length > 2) {
